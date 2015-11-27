@@ -6,6 +6,7 @@ var buffer = require('vinyl-buffer');
 var source = require('vinyl-source-stream');
 var sass = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
+var livereload = require('gulp-livereload');
 
 var src = {};
 var exclude = [
@@ -31,7 +32,8 @@ gulp.task('scripts', function() {
     .on('error', function(err) { console.log(err) })
     .pipe(source('application.js'))
     .pipe(buffer())
-    .pipe(gulp.dest('./dist/scripts'));
+    .pipe(gulp.dest('./dist/scripts'))
+    .pipe(livereload());
 });
 
 gulp.task('styles', function() {
@@ -43,7 +45,14 @@ gulp.task('styles', function() {
       precision: 10
     }))
     .pipe(autoprefixer())
-    .pipe(gulp.dest('./dist/styles'));
+    .pipe(gulp.dest('./dist/styles'))
+    .pipe(livereload());
+});
+
+gulp.task('watch', function() {
+  livereload.listen();
+  gulp.watch('src/**/*.scss', ['styles']);
+  gulp.watch('src/**/*.js', ['scripts']);
 });
 
 gulp.task('build', ['scripts', 'styles']);
