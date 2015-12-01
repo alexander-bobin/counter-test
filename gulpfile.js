@@ -1,6 +1,7 @@
 'use strict';
 
 var gulp = require('gulp');
+var gutil = require('gulp-util');
 var browserify = require('browserify');
 var buffer = require('vinyl-buffer');
 var source = require('vinyl-source-stream');
@@ -19,6 +20,11 @@ var exclude = [
   '!./dist/**'
 ];
 
+var onError = function ( err ) {
+  gutil.log( gutil.colors.green( err.message ) );
+  this.emit( 'end' );
+};
+
 gulp.task('scripts', function() {
   src.scripts = ['./**/*.js'].concat(exclude);
 
@@ -29,7 +35,7 @@ gulp.task('scripts', function() {
 
   return bundler
     .bundle()
-    .on('error', function(err) { console.log(err) })
+    .on('error', onError)
     .pipe(source('application.js'))
     .pipe(buffer())
     .pipe(gulp.dest('./dist/scripts'))
@@ -44,6 +50,7 @@ gulp.task('styles', function() {
       sourceComments: 'normal',
       precision: 10
     }))
+    .on('error', onError)
     .pipe(autoprefixer())
     .pipe(gulp.dest('./dist/styles'))
     .pipe(livereload());
