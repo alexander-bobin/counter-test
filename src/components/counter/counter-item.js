@@ -14,9 +14,9 @@ export default React.createClass({
     );
   },
   handleIncrement: function (e) {
-    this.props.onIncrementCounter(this.props.counterKey);
+    this.props.onIncrement(this.props.counterKey);
   },
   handleDecrement: function(e) {
-    this.props.onDecrementCounter(this.props.counterKey);
+    this.props.onDecrement(this.props.counterKey);
   }
 });

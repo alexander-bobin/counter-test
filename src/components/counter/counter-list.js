@@ -16,8 +16,8 @@ export default React.createClass({
           name={counter.name}
           count={counter.count}
           counterKey={key}
-          onIncrementCounter={this.props.onIncrementCounter}
-          onDecrementCounter={this.props.onDecrementCounter} />);
+          onIncrement={this.props.onIncrementCounter}
+          onDecrement={this.props.onDecrementCounter} />);
     });
     return (
       <div className="counter-list">
@@ -39,4 +39,6 @@ export default React.createClass({
     this.props.onCounterAdd(name);
     node.value = '';
   }
+  
+  // TODO: Declare prop types
 });
