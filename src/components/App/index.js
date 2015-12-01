@@ -7,6 +7,7 @@ import { addCounter, incrementCounter, decrementCounter } from '../../actions/co
 
 var App = React.createClass({
   render: function() {
+    // dispatch here is one of the reasons we use connect
     const { dispatch } = this.props;
     return (
       <div className="App">
