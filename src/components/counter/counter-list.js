@@ -21,10 +21,11 @@ export default React.createClass({
     });
     return (
       <div className="counter-list">
+        <p className="counter-total">Total: {this.props.total}</p>
+        {counterItems}
         <form onSubmit={e => this.onSubmit(e) }>
           <input type="text" ref="name" /> <button onClick={e => this.onAddClick(e)}>Add</button>
         </form>
-        {counterItems}
       </div>
     );
   },
