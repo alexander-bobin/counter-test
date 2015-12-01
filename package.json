@@ -44,6 +44,7 @@
     "compression": "~1.0.8",
     "express": "~4.4.5",
     "morgan": "~1.1.1",
+    "react-redux": "^4.0.0",
     "redux": "^3.0.4"
   },
   "engines": {

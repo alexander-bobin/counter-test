@@ -1,7 +1,17 @@
 "use strict";
 
-var React = require('react');
-var App = require('./components/App');
-var ReactDOM = require('react-dom');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import counterReducer from './reducers/counter-reducers';
+import App from './components/App';
 
-ReactDOM.render(<App/>, document.getElementById('counter'));
+let store = createStore(counterReducer);
+
+ReactDOM.render(
+  <Provider store={store}>
+    <App/>
+  </Provider>, 
+  document.getElementById('counter')
+);
