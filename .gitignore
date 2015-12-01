@@ -2,3 +2,4 @@ node_modules
 .DS_Store
 dist/scripts/application.js
 dist/styles/styles.css
+*.sublime-*
