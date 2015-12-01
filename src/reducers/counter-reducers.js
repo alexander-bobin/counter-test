@@ -1,3 +1,5 @@
+"use strict";
+
 import _ from 'lodash';
 import { ADD_COUNTER, INCREMENT_COUNTER, DECREMENT_COUNTER } from '../actions/counter-actions';
 
