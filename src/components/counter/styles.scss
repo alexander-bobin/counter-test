@@ -1,3 +1,19 @@
+/* Counter total */
+.counter-total__number {
+  font-weight: bold;
+}
+
+/* Counter item */
 .counter {
-  margin-bottom: 1em;
+  margin-bottom: 0.5em;
+  padding: 1em 0;
+  border-bottom: 1px solid #DDD;
+  position: relative;
+}
+.counter__controls {
+  text-align: right;
+  margin: -0.5em 0 0 0;
+  position: absolute;
+  top: 1em;
+  right: 0.5em;
 }

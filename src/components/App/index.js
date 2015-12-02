@@ -11,15 +11,19 @@ var App = React.createClass({
     // down below
     const { dispatch } = this.props;
     return (
-      <div className="App">
-        <h1 className="App__header">Counter App</h1>
-        <CounterList
-          total={this.props.total}
-          counters={this.props.counters}
-          onCounterAdd={name => dispatch(addCounter(name))}
-          onIncrementCounter={key => dispatch(incrementCounter(key))}
-          onDecrementCounter={key => dispatch(decrementCounter(key))}
-        />
+      <div className="app container">
+        <h1 className="app__header">Counter App</h1>
+        <div className="row">
+          <div className="col-md-5">
+            <CounterList
+              total={this.props.total}
+              counters={this.props.counters}
+              onCounterAdd={name => dispatch(addCounter(name))}
+              onIncrementCounter={key => dispatch(incrementCounter(key))}
+              onDecrementCounter={key => dispatch(decrementCounter(key))}
+            />
+          </div>
+        </div>
       </div>
     );
   },

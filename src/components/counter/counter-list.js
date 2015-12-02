@@ -21,12 +21,14 @@ export default React.createClass({
           onDecrement={this.props.onDecrementCounter} />);
     });
     return (
-      <div>
-        <div className="counter-total">
-          <p>Total: <span className="counter-total__number">{this.props.total}</span></p>
+      <div className="panel panel-default">
+        <div className="counter-total panel-heading">
+          Total: <span className="counter-total__number">{this.props.total}</span>
         </div>
-        {counterItems}
-        <AddCounter onAdd={this.props.onCounterAdd} />
+        <div className="panel-body">
+          {counterItems}
+          <AddCounter onAdd={this.props.onCounterAdd} />
+        </div>
       </div>
     );
   }
