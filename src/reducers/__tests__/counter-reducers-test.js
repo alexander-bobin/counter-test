@@ -152,6 +152,9 @@ describe('Counter reducers', function() {
       state = counterReducer(state, incrementCounter('thirdcounter'));
 
       expect(state.total).to.be.equal(6);
-    })
-  })
+    });
+  });
+
+  // Note:  We may want some tests to ensure we are returning a completely new
+  //        state each time with no references to old objects
 });

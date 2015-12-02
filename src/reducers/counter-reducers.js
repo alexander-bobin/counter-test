@@ -3,6 +3,9 @@
 import _ from 'lodash';
 import { ADD_COUNTER, INCREMENT_COUNTER, DECREMENT_COUNTER } from '../actions/counter-actions';
 
+// Note:  We could use immutablejs or immutability helpers in react addons 
+//        here to help ensure the underlying state is never mutated
+
 const initialState = {
   total: 0,
   counters: {}
