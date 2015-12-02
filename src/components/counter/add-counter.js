@@ -7,7 +7,12 @@ export default React.createClass({
     return (
       <div className="counter-add">
         <form className="counter-add__form" onSubmit={e => this.onSubmit(e) }>
-          <input className="counter-add__input" type="text" ref="name" />
+          <label htmlFor="counter-add__input">New counter</label>
+          <input className="counter-add__input" 
+            type="text"
+            ref="name"
+            id="counter-add__input"
+            placeholder="Name" />
           <button className="counter-add__btn" onClick={e => this.onAddClick(e)}>Add</button>
         </form>
       </div>
