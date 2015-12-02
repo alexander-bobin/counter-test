@@ -19,23 +19,23 @@ describe('CounterItem', function() {
       />);
   });
 
-  it('correctly displays the name', function() {
+  it('displays the name', function() {
     var node = findByClass(component, 'counter__name');
     expect(node.getDOMNode().textContent).to.contain('Bananas');
   });
 
-  it('correctly displays the count', function() {
+  it('displays the count', function() {
     var node = findByClass(component, 'counter__count');
     expect(node.getDOMNode().textContent).to.contain('12');
   });
 
-  it('correctly calls onIncrement', function() {
+  it('calls onIncrement', function() {
     var node = findByClass(component, 'counter__increment');
     Simulate.click(node);
     expect(incrementSpy).to.have.been.calledWith("ban");
   });
 
-  it('correctly calls onDecrement', function() {
+  it('calls onDecrement', function() {
     var node = findByClass(component, 'counter__decrement');
     Simulate.click(node);
     expect(decrementSpy).to.have.been.calledWith("ban");

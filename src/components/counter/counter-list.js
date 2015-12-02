@@ -2,6 +2,7 @@
 
 import React from 'react';
 import _ from 'lodash';
+import AddCounter from './add-counter';
 import CounterItem from './counter-item';
 
 export default React.createClass({
@@ -20,25 +21,12 @@ export default React.createClass({
           onDecrement={this.props.onDecrementCounter} />);
     });
     return (
-      <div className="counter-list">
-        <p className="counter-total">Total: {this.props.total}</p>
+      <div>
+        <p>Total: {this.props.total}</p>
         {counterItems}
-        <form onSubmit={e => this.onSubmit(e) }>
-          <input type="text" ref="name" /> <button onClick={e => this.onAddClick(e)}>Add</button>
-        </form>
+        <AddCounter onAdd={this.props.onCounterAdd} />
       </div>
     );
-  },
-  onSubmit: function (e) {
-    e.preventDefault();
-    this.onAddClick(e);
-  },
-  onAddClick: function (e) {
-    var node = this.refs.name;
-    var name = node.value.trim();
-    if (!name) return;
-    this.props.onCounterAdd(name);
-    node.value = '';
   }
   
   // TODO: Declare prop types
