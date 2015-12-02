@@ -2,12 +2,13 @@
 
 describe('CounterItem', function() {
   var CounterItem = require('../counter-item');
-  var ReactTestUtils = require('react/addons').addons.TestUtils;
   var component;
-  var incrementSpy = sinon.spy();
-  var decrementSpy = sinon.spy();
+  var incrementSpy;
+  var decrementSpy;
 
   beforeEach(function() {
+    incrementSpy = sinon.spy();
+    decrementSpy = sinon.spy();
     component = renderIntoDocument(
       <CounterItem
         name="Bananas"
@@ -30,13 +31,13 @@ describe('CounterItem', function() {
 
   it('correctly calls onIncrement', function() {
     var node = findByClass(component, 'counter__increment');
-    ReactTestUtils.Simulate.click(node);
+    Simulate.click(node);
     expect(incrementSpy).to.have.been.calledWith("ban");
   });
 
   it('correctly calls onDecrement', function() {
     var node = findByClass(component, 'counter__decrement');
-    ReactTestUtils.Simulate.click(node);
+    Simulate.click(node);
     expect(decrementSpy).to.have.been.calledWith("ban");
   });
 });
