@@ -25,12 +25,21 @@ var onError = function ( err ) {
   this.emit( 'end' );
 };
 
+var config = {
+  jsSourceMaps: false
+};
+
+gulp.task('set-development', function() {
+  config.sourcemaps = true;
+});
+
 gulp.task('scripts', function() {
   src.scripts = ['./**/*.js'].concat(exclude);
 
   var bundler = browserify({
     entries: ['./src/application.js'],
-    transform: ['babelify']
+    transform: ['babelify'],
+    debug: config.jsSourceMaps
   });
 
   return bundler
@@ -59,7 +68,7 @@ gulp.task('styles', function() {
 gulp.task('watch', function() {
   livereload.listen();
   gulp.watch('src/**/*.scss', ['styles']);
-  gulp.watch('src/**/*.js', ['scripts']);
+  gulp.watch('src/**/*.js', ['set-development', 'scripts']);
 });
 
 gulp.task('build', ['scripts', 'styles']);
