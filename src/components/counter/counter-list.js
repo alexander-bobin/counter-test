@@ -22,7 +22,9 @@ export default React.createClass({
     });
     return (
       <div>
-        <p>Total: {this.props.total}</p>
+        <div className="counter-total">
+          <p>Total: <span className="counter-total__number">{this.props.total}</span></p>
+        </div>
         {counterItems}
         <AddCounter onAdd={this.props.onCounterAdd} />
       </div>

@@ -7,7 +7,8 @@ import { addCounter, incrementCounter, decrementCounter } from '../../actions/co
 
 var App = React.createClass({
   render: function() {
-    // dispatch here is one of the reasons we use connect
+    // Redux-grok: Access to dispatch here is one of the reasons we use connect
+    // down below
     const { dispatch } = this.props;
     return (
       <div className="App">
@@ -25,8 +26,10 @@ var App = React.createClass({
 });
 
 // Return the whole state, we don't need to return only a part of it
+// Redux-grok: The state gets smushed into props
 function select (state) {
   return state;
 }
 
+// Redux-grok: Using connect gives use access to dispatch on props inside the component
 export default connect(select)(App);
