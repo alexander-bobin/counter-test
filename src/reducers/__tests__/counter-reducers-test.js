@@ -126,4 +126,32 @@ describe('Counter reducers', function() {
       }
     });
   });
+
+  describe('calculates the total', function() {
+    it('in a simple state', function() {
+      var state = counterReducer(initialState, addCounter('Test counter'));
+      state = counterReducer(state, incrementCounter('testcounter'));
+      state = counterReducer(state, incrementCounter('testcounter'));
+      expect(state.total).to.be.equal(2);
+    })
+
+    it('in a complex state', function() {
+      var state = counterReducer(initialState, addCounter('First counter'));
+      state = counterReducer(state, addCounter('Second counter'));
+      state = counterReducer(state, addCounter('Third counter'));
+
+      state = counterReducer(state, incrementCounter('firstcounter'));
+      state = counterReducer(state, incrementCounter('firstcounter'));
+      state = counterReducer(state, incrementCounter('firstcounter'));
+      state = counterReducer(state, decrementCounter('secondcounter'));
+      state = counterReducer(state, decrementCounter('secondcounter'));
+      state = counterReducer(state, incrementCounter('thirdcounter'));
+      state = counterReducer(state, incrementCounter('thirdcounter'));
+      state = counterReducer(state, incrementCounter('thirdcounter'));
+      state = counterReducer(state, incrementCounter('thirdcounter'));
+      state = counterReducer(state, incrementCounter('thirdcounter'));
+
+      expect(state.total).to.be.equal(6);
+    })
+  })
 });
